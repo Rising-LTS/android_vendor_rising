@@ -1,15 +1,15 @@
 PRODUCT_VERSION_MAJOR = 1
-PRODUCT_VERSION_MINOR = 4
+PRODUCT_VERSION_MINOR = 6
 
 RISING_FLAVOR := Tiramisu
-RISING_VERSION := 1.4
-RISING_CODENAME := Elysium
+RISING_VERSION := 1.6
+RISING_CODENAME := Hayabusa
 RISING_RELEASE_TYPE := FINAL
 RISING_CODE := $(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR)
 
 CURRENT_DEVICE=$(shell echo "$(TARGET_PRODUCT)" | cut -d'_' -f 2,3)
-MAINTAINER_LIST = $(shell cat vendor/risingOTA/risingOS.maintainers)
-DEVICE_LIST = $(shell cat vendor/risingOTA/risingOS.devices)
+MAINTAINER_LIST = $(shell cat vendor/Update/maintainers)
+DEVICE_LIST = $(shell cat vendor/Update/devices)
 
 ifeq ($(filter $(CURRENT_DEVICE), $(DEVICE_LIST)), $(CURRENT_DEVICE))
    ifeq ($(filter $(RISING_MAINTAINER), $(MAINTAINER_LIST)), $(RISING_MAINTAINER))
@@ -28,7 +28,7 @@ ifeq ($(filter $(CURRENT_DEVICE), $(DEVICE_LIST)), $(CURRENT_DEVICE))
        $(warning *    Please contact current official maintainer before distributing  *)
        $(warning *              the current build to the community.                   *)
        $(warning **********************************************************************)
-       RISING_BUILDTYPE := UNOFFICIAL
+       RISING_BUILDTYPE := COMMUNITY
      endif
   endif
 else
@@ -37,7 +37,7 @@ else
      $(error *     A violation has been detected, aborting build      *)
      $(error **********************************************************)
    endif
-  RISING_BUILDTYPE := COMMUNITY
+  RISING_BUILDTYPE := HAYABUSA
 endif
 
 LINEAGE_VERSION_APPEND_TIME_OF_DAY ?= true
