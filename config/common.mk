@@ -9,7 +9,7 @@ $(call inherit-product-if-exists, vendor/rising-prebuilts/prebuilts_product_copy
 
 # Define some properties for GMS
 ifeq ($(WITH_GMS), true)
-$(call inherit-product-if-exists, vendor/gms/products/gms.mk)
+$(call inherit-product-if-exists, vendor/gms/common.mk)
 endif
 
 PRODUCT_BRAND ?= RisingOS
