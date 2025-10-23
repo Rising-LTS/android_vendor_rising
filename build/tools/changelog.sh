@@ -35,7 +35,7 @@ mkdir -p $OUT_DIR/system/etc
 touch $Changelog
 
 # Get a list of all the repositories
-REPO_LIST="$(repo list --path | sed 's|^vendor/risingOTA$||')"
+REPO_LIST="$(repo list --path | sed 's|^vendor/Update$||')"
 
 os=$(uname)
 # function to handle date format
