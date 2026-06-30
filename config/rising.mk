@@ -143,13 +143,6 @@ PRODUCT_DEXPREOPT_SPEED_APPS += \
     SystemUIGoogle \
     SettingsGoogle
 
-ifneq ($(WITH_GMS), true)
-# Core packages
-PRODUCT_PACKAGES += \
-    PixelThemesStubPrebuilt \
-    PixelThemesStub2022_and_newerPrebuilt
-endif
-
 PRODUCT_DEXPREOPT_SPEED_APPS += \
     Launcher3QuickStep
 
